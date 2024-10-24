@@ -18,7 +18,7 @@ v training
 __________
 
 so then the image data can be put under each persons name
-
+you can also have a different file set up, you just may have to make some changes to the functions
 """
 
 
