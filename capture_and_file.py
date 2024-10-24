@@ -27,6 +27,9 @@ you can also have a different file set up, you just may have to make some change
 """
 face_detector:
 preloads in a face recongintion model to detect where a face is
+taken from this website:
+https://www.datacamp.com/tutorial/face-detection-python-opencv
+
 """
 face_detector = cv2.CascadeClassifier(
     cv2.data.haarcascades + "haarcascade_frontalface_default.xml"
