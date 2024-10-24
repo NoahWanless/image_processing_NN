@@ -6,7 +6,7 @@ import cv2  #this is a module for life feed camera stuff
 
 """
 || Contains all the image capturing functions and implamentation ||
-
+!NOTE: ASSUMES EACH NAME HAS 5000 IMAGES UNDER THEM 
 These image capture functions need a little bit of file set up before they work:
 ideally you would have somethihng like this:
 __________
