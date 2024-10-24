@@ -132,4 +132,4 @@ def load_all_data(list_of_people,section,output_size):
 
 n = 500 #!NUMBER OF PICTURES TO BE TAKEN
 
-#write_all_info_to_file(capture_pictures_and_get_data(n),"other","dtraining")
+#write_all_info_to_file(capture_pictures_and_get_data(n),"other","training")
