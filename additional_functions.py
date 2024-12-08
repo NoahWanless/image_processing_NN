@@ -3,52 +3,6 @@ import numpy as np
 from collections import deque
 import math
 import time
-import ctypes
-c_prop_lib = ctypes.CDLL("./propagation.so")
-fpointer3d = np.ctypeslib.ndpointer(dtype=np.float64,ndim=3)
-fpointer2d = np.ctypeslib.ndpointer(dtype=np.float64,ndim=2)
-fpointer1d = np.ctypeslib.ndpointer(dtype=np.float64,ndim=1)
-intpointer1d = np.ctypeslib.ndpointer(dtype=np.int32,ndim=1)
-c_prop_lib.add_changes_c.argtypes = [fpointer3d,fpointer2d,fpointer2d,intpointer1d,intpointer1d,intpointer1d]
-c_prop_lib.add_changes_c.restype = None
-#g++ -fPIC -shared -o propagation.so propagation_cplusplus.cpp cplusplus_bindings.cpp
-
-#make test function for this
-def add_changes_wc(changes, activations, deltas, model_structure):
-    activations_shape = [len(activations),len(activations[0])]
-    deltas_shape = [len(deltas),len(deltas[0])]
-    
-    c_prop_lib.add_changes_c(changes,activations,deltas,model_structure,deltas_shape,activations_shape, len(model_structure))
-
-ch = []
-#ch = np.array([], dtype="int32")
-a = [0,0]
-d = [0,0]
-ch_d = deque()
-ch_d.append(np.zeros((4,4),dtype=np.float64))
-ch_d.append(np.zeros((4,3),dtype=np.float64))
-ch_d.append(np.zeros((3,3),dtype=np.float64))
-ch_g_test = np.array(ch_d, dtype = object) #np.float64
-ch_f_test = np.array(ch_g_test, dtype = np.float64)
-model_test = [4,3,3]
-d_test = [[3,2],[2,3]]
-a_test = [[3,2],[2,3]]
-ch.append(np.zeros((4,4)))
-ch.append(np.zeros((4,3)))
-ch.append(np.zeros((3,3)))
-#ch_test = ch_f_test.astype(np.float64)
-print(ch_f_test)
-#add_changes_wc(3,ch,a,d,model_test,d_test,a_test)
-add_changes_wc(ch_f_test,a_test,d_test,model_test)
-print(ch_f_test)
-
-
-
-
-
-
-
-
 
 
 
@@ -70,13 +24,6 @@ def timeit(func):
         print(f'Time taken: {elapsed:.6f} seconds')
         return result
     return wrapper
-
-
-
-
-
-
-
 
 
 
