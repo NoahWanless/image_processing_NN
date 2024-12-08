@@ -8,7 +8,8 @@ import capture_and_file
 import additional_functions
 import cv2  #this is a module for life feed camera stuff 
 import time
-list_of_people = ["bobby","noah"]
+list_of_people = [] #!this is the list of subfolders for training images, ie if im training off of 5 people in the training data, there names 
+#go in this list
 
 EPSILON = 0.00001 #small number to avoid divsion by zero
 ALPHA = 0.01 #learning rate
